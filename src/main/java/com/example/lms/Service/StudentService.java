@@ -1,4 +1,4 @@
-package com.example.lms.Service.Implementor;
+package com.example.lms.Service;
 
 import com.example.lms.Entity.Student;
 import com.example.lms.Pojo.StudentPojo;
@@ -19,8 +19,7 @@ public interface StudentService {
 
 
     void saveData(StudentPojo studentPojo);
-    List<Student> getAll();
-
+    List<Student>getAll();
     void deleteById(Integer id);
      Optional<Student> findById(Integer id);
 

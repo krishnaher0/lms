@@ -1,4 +1,4 @@
-package com.example.lms.Shared.pojo;
+package com.example.lms.Shared;
 
 import lombok.*;
 import org.springframework.stereotype.Service;
