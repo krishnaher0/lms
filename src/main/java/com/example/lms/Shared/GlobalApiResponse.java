@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 public class GlobalApiResponse<T> {
     private String message;
-    private String data;
-    private int statusCode;
+    private T data;
+    private Integer statusCode;
 }
 

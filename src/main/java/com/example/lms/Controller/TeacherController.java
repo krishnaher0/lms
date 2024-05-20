@@ -1,52 +1,53 @@
 package com.example.lms.Controller;
 
 import com.example.lms.Entity.Student;
+import com.example.lms.Entity.Teacher;
 import com.example.lms.Pojo.StudentPojo;
+import com.example.lms.Pojo.TeacherPojo;
 import com.example.lms.Service.StudentService;
+import com.example.lms.Service.TeacherService;
 import com.example.lms.Shared.GlobalApiResponse;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-
 @RestController
-@RequestMapping("/students")
-
+@RequestMapping("/teachers")
 @RequiredArgsConstructor
+public class TeacherController {
 
-
-public class StudentController {
-    private final StudentService studentService;
+        private final TeacherService teacherService;
 
 
 
         @GetMapping("/get")
-        public GlobalApiResponse<List<Student>> getData() {
+        public GlobalApiResponse<List<Teacher>> getData() {
             return GlobalApiResponse.
-                    <List<Student>>builder()
-                    .data(studentService.getAll())
+                    <List<Teacher>>builder()
+                    .data(teacherService.getAll())
                     .statusCode(200)
                     .message("Data retrieved successfully!")
                     .build();
         }
 
-//
-    @PostMapping("/save")
-    public void save(@RequestBody StudentPojo studentPojo) {
-        this.studentService.saveData(studentPojo);
-    }
+        //
+        @PostMapping("/save")
+        public void save(@RequestBody TeacherPojo teacherPojo) {
+            this.teacherService.saveData(teacherPojo);
+        }
 
         @GetMapping("/get/{id}")
-        public Optional<Student> getData(@PathVariable Integer id) {
+        public Optional<Teacher> getData(@PathVariable Integer id) {
             System.out.println("Hello");
-            return studentService.findById(id);
+            return teacherService.findById(id);
         }
 
         @DeleteMapping("/delete/{id}")
         public void delete(@PathVariable Integer id) {
-            this.studentService.deleteById(id);
+            this.teacherService.deleteById(id);
         }
     }
+
+
 

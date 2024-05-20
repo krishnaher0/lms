@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -13,12 +15,13 @@ import lombok.Setter;
 public class StudentPojo {
     private Integer Id;
     private String studentName;
-//    private String Password;
-//    private String Email;
-//    private String Contacts;
-//    private String Section;
-//    private String DateOfBirth;
-//    private String AdmissionDate;
-//    private Integer Age;
+    private String Password;
+    private String Email;
+    private Integer Contacts;
+    private Integer RollNo;
+    private String Section;
+    private Date DateOfBirth;
+    private Date AdmissionDate;
+    private Integer Age;
 
 }

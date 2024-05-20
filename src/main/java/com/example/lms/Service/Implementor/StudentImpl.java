@@ -49,8 +49,15 @@ public class StudentImpl implements StudentService {
         Student student = new Student();
         student.setId(studentPojo.getId());
         student.setStudentName(studentPojo.getStudentName());
-//        student.setPassword(studentPojo.getPassword());
-//        student.setId(studentPojo.getId());
+        student.setPassword(studentPojo.getPassword());
+        student.setEmail(studentPojo.getEmail());
+        student.setContacts(studentPojo.getContacts());
+        student.setGrade(studentPojo.getEmail());
+        student.setSection(studentPojo.getEmail());
+        student.setRollNo(studentPojo.getRollNo());
+        student.setDateOfBirth(studentPojo.getDateOfBirth());
+        student.setAdmissionDate(studentPojo.getAdmissionDate());
+        student.setAge(studentPojo.getAge());
         studentRepo.save(student);
     }
 
