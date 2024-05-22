@@ -13,7 +13,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class StudentPojo {
-    private Integer Id;
+    private Long Id;
     private String studentName;
     private String Password;
     private String Email;

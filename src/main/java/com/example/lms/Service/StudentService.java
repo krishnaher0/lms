@@ -17,8 +17,8 @@ public interface StudentService {
 
     void saveData(StudentPojo studentPojo);
     List<Student>getAll();
-    void deleteById(Integer id);
-     Optional<Student> findById(Integer id);
+    void deleteById(Long id);
+     Optional<Student> findById(Long id);
 
 }
 

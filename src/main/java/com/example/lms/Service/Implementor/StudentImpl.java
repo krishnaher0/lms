@@ -69,15 +69,15 @@ public class StudentImpl implements StudentService {
             return studentRepo.findAll();
         }
         @Override
-        public void deleteById(Integer id) {
+        public void deleteById(Long id) {
             System.out.println("My name is krishna bhandari");
-            studentRepo.deleteById(Long.valueOf(id));
+            studentRepo.deleteById(id.intValue());
         }
 
     @Override
-    public Optional<Student> findById(Integer id) {
+    public Optional<Student> findById(Long id) {
         System.out.println("My name is krishna bh");
-        return studentRepo.findById(id.longValue());
+        return studentRepo.findById(id.intValue());
         }
 
     }
