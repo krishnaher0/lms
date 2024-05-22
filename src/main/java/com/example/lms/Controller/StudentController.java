@@ -35,18 +35,19 @@ public class StudentController {
 //
     @PostMapping("/save")
     public void save(@RequestBody StudentPojo studentPojo) {
-        this.studentService.saveData(studentPojo);
+
+            this.studentService.saveData(studentPojo);
     }
 
         @GetMapping("/get/{id}")
         public Optional<Student> getData(@PathVariable Integer id) {
             System.out.println("Hello");
-            return studentService.findById(id);
+            return studentService.findById(id.longValue());
         }
 
         @DeleteMapping("/delete/{id}")
         public void delete(@PathVariable Integer id) {
-            this.studentService.deleteById(id);
+            this.studentService.deleteById(id.longValue());
         }
     }
 

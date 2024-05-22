@@ -1,17 +1,25 @@
 package com.example.lms.Entity;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 
 import java.util.Date;
 
+
 @Entity
 
 
 @Getter
+@AllArgsConstructor
+@RequiredArgsConstructor
 @Setter
+
 @Table(name="students")
 public class Student{
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator="students_seq_gen")
@@ -38,6 +46,8 @@ public class Student{
     private Date AdmissionDate;
     @Column(name="age",nullable = false,length=100)
     private Integer Age;
+
+
 
 
 }
