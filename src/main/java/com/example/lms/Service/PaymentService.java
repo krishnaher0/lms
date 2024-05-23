@@ -10,6 +10,6 @@ public interface PaymentService {
     void setPayment(PaymentPojo paymentPojo);
     List<Payment> getAll();
     Optional<Payment> findById(Long paymentId);
-    void deleteById(Long paymentId);
+
 
 }

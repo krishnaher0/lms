@@ -15,5 +15,5 @@ public class PaymentPojo {
     private Long paid;
     private Long due;
     private boolean status;
-    private Student student;
+    private Student studentId;
 }

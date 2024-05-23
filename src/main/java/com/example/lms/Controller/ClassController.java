@@ -1,16 +1,12 @@
 package com.example.lms.Controller;
 
-
-import com.example.lms.Entity.Attendance;
+import com.example.lms.Entity.ClassSchool;
 import com.example.lms.Entity.Payment;
-import com.example.lms.Entity.Student;
-
-import com.example.lms.Pojo.AttendancePojo;
+import com.example.lms.Pojo.ClassPojo;
 import com.example.lms.Pojo.PaymentPojo;
-import com.example.lms.Service.AttendanceService;
+import com.example.lms.Service.ClassService;
 import com.example.lms.Service.PaymentService;
 import com.example.lms.Shared.GlobalApiResponse;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.springframework.http.ResponseEntity;
@@ -18,24 +14,18 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-
-
-@Getter
-@Setter
 @RestController
-
 @RequiredArgsConstructor
-@RequestMapping("/payment")
+@RequestMapping("/class")
+@Setter
 
-
-public class PaymentController {
-
-    private  final PaymentService paymentService;
+public class ClassController {
+    private  final ClassService classService;
     @GetMapping("/get")
-    public GlobalApiResponse<List<Payment>> getData() {
+    public GlobalApiResponse<List<ClassSchool>> getData() {
         return GlobalApiResponse.
-                <List<Payment>>builder()
-                .data(paymentService.getAll())
+                <List<ClassSchool>>builder()
+                .data(classService.getAll())
                 .statusCode(200)
                 .message("Data retrieved successfully!")
                 .build();
@@ -43,20 +33,18 @@ public class PaymentController {
 
     //
     @PostMapping("/save")
-    public ResponseEntity<?> save(@RequestBody PaymentPojo paymentPojo) {
+    public ResponseEntity<?> save(@RequestBody ClassPojo classPojo) {
         // Add validation or logging here if necessary
-        if (paymentPojo.getStudentId() == null) {
+        if (classPojo.getClassName() == null) {
             // Handle the missing student_id case
             return ResponseEntity.badRequest().body("Student ID is required");
         }
-        paymentService.setPayment(paymentPojo);
+        classService.addClass(classPojo);
         return ResponseEntity.ok("Payment saved successfully");
     }
     @GetMapping("/get/{id}")
-    public Optional<Payment> getData(@PathVariable Long id) {
+    public Optional<ClassSchool> getData(@PathVariable String id) {
         System.out.println("Hello");
-        return paymentService.findById(id);
+        return classService.findById(id);
     }
-
-
 }
