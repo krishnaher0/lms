@@ -25,7 +25,7 @@ public class PaymentImpl implements PaymentService {
     public void setPayment(PaymentPojo paymentPojo) {
         Payment payment=new Payment();
         System.out.println(paymentPojo.getDate());
-        payment.setId(paymentPojo.getId());
+        payment.setPaymentId(paymentPojo.getPaymentId());
         payment.setStudent(paymentPojo.getStudent());
         payment.setDate(LocalDate.now());
         payment.setStatus(paymentPojo.isStatus());

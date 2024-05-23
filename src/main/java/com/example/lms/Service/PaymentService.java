@@ -9,7 +9,7 @@ import java.util.Optional;
 public interface PaymentService {
     void setPayment(PaymentPojo paymentPojo);
     List<Payment> getAll();
-    Optional<Payment> findById(Long id);
-    void deleteById(Long id);
+    Optional<Payment> findById(Long paymentId);
+    void deleteById(Long paymentId);
 
 }

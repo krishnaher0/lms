@@ -47,7 +47,7 @@ public class StudentImpl implements StudentService {
     @Override
     public void saveData(StudentPojo studentPojo) {
         Student student = new Student();
-        student.setId(studentPojo.getId());
+        student.setStudentId(studentPojo.getStudentId().intValue());
         student.setStudentName(studentPojo.getStudentName());
         student.setPassword(studentPojo.getPassword());
         student.setEmail(studentPojo.getEmail());

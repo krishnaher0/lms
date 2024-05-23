@@ -14,5 +14,5 @@ import java.util.Optional;
 public interface AttendanceService {
     void takeAttendance(AttendancePojo attendancePojo);
     List<Attendance> getAll();
-    Optional<Attendance> findById(Integer studentId);
+    Optional<Attendance> findById(Integer attendanceId);
 }

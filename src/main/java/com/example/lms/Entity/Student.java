@@ -25,7 +25,7 @@ public class Student{
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator="students_seq_gen")
     @SequenceGenerator(name="students_seq_gen",sequenceName="students_seq",allocationSize=1)
     @Id
-    private Integer Id;
+    private Integer studentId;
     @Column(name="student_name" ,nullable=true, length=100)
     private String  studentName;
     @Column(name="password",nullable = false,length=100)

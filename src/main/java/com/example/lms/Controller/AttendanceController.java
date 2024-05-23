@@ -11,6 +11,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,7 +27,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 
 public class AttendanceController {
-    @Autowired
+
     private  final AttendanceService attendanceService;
     @GetMapping("/get")
     public GlobalApiResponse<List<Attendance>> getData() {
@@ -40,19 +41,19 @@ public class AttendanceController {
 
     //
     @PostMapping("/save")
-    public GlobalApiResponse<String> save(  AttendancePojo attendancePojo) {
-        this.attendanceService.takeAttendance(attendancePojo);
-        return GlobalApiResponse.
-                <String>builder()
-                .statusCode(200)
-                .data("ok")
-                .message("Member saved Successfully!")
-                .build();
+    public ResponseEntity<?> save(@RequestBody AttendancePojo attendance) {
+        // Add validation or logging here if necessary
+        if (attendance.getStudentId() == null) {
+            // Handle the missing student_id case
+            return ResponseEntity.badRequest().body("Student ID is required");
+        }
+        attendanceService.takeAttendance(attendance);
+        return ResponseEntity.ok("Attendance saved successfully");
     }
     @GetMapping("/get/{id}")
-    public Optional<Attendance> getData( Student student) {
+    public Optional<Attendance> getData(@PathVariable Integer id) {
         System.out.println("Hello");
-        return attendanceService.findById(student.getId().intValue());
+        return attendanceService.findById(id);
     }
 
 }
