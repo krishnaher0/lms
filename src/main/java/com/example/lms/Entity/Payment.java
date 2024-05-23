@@ -19,7 +19,7 @@ import java.time.LocalDate;
 @Table(name="StudentPayment")
 public class Payment {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO,generator="payment_seq_gen")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator="payment_seq_gen")
     @SequenceGenerator(name="payment_seq_gen",sequenceName="payment_seq_gen",allocationSize=1)
 
 
@@ -41,7 +41,7 @@ public class Payment {
 
     @JoinColumn(name="student_id")
     @OneToOne()
-    private Student student;
+    private Student studentId;
 
 
 

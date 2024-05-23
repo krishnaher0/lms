@@ -21,18 +21,25 @@ import java.util.Optional;
 public class PaymentImpl implements PaymentService {
     private final PaymentRepo paymentRepo;
 
+
     @Override
     public void setPayment(PaymentPojo paymentPojo) {
-        Payment payment=new Payment();
-        System.out.println(paymentPojo.getDate());
+        Payment payment = new Payment();
+        System.out.println("Attendance Date: " + paymentPojo.getDate());
         payment.setPaymentId(paymentPojo.getPaymentId());
-        payment.setStudent(paymentPojo.getStudent());
-        payment.setDate(LocalDate.now());
-        payment.setStatus(paymentPojo.isStatus());
+        payment.setStudentId(paymentPojo.getStudentId());
+        payment.setTotal(paymentPojo.getTotal());
         payment.setPaid(paymentPojo.getPaid());
         payment.setDue(paymentPojo.getDue());
+        // Use the date from attendancePojo instead of always using LocalDate.now()
+        if (paymentPojo.getDate() != null) {
+            payment.setDate(paymentPojo.getDate());
+        } else {
+            payment.setDate(LocalDate.now());
+        }
+        payment.setStatus(paymentPojo.isStatus());
+        System.out.println("Attendance before save: " + payment);
         paymentRepo.save(payment);
-
     }
 
     @Override
@@ -41,12 +48,7 @@ public class PaymentImpl implements PaymentService {
     }
 
     @Override
-    public Optional<Payment> findById(Long studentId) {
-        return paymentRepo.findById(studentId);
-    }
-
-    @Override
-    public void deleteById(Long studentId) {
-        paymentRepo.deleteById(studentId);
+    public Optional<Payment> findById(Long paymentId) {
+        return paymentRepo.findById(paymentId);
     }
 }
