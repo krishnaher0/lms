@@ -45,14 +45,14 @@ private final PaymentService paymentService;
         System.out.println(paymentPojo.isStatus());
         this.paymentService.setPayment(paymentPojo);
     }
-    @GetMapping("/get/{id}")
+    @GetMapping("/get/{paymentId}")
     public Optional<Payment> getData(Student student) {
         System.out.println("Hello");
-        return paymentService.findById(student.getId());
+        return paymentService.findById(student.getStudentId().longValue());
     }
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/delete/{paymentId}")
     public void delete( Student student) {
-        this.paymentService.deleteById(student.getId());
+        this.paymentService.deleteById(student.getStudentId().longValue());
     }
 
 

@@ -16,10 +16,14 @@ import java.time.LocalDate;
 @RequiredArgsConstructor
 
 
-@Table(name="PaymentTable1")
+@Table(name="StudentPayment")
 public class Payment {
     @Id
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO,generator="payment_seq_gen")
+    @SequenceGenerator(name="payment_seq_gen",sequenceName="payment_seq_gen",allocationSize=1)
+
+
+    private Long paymentId;
 
     @Column(name="Date")
     private LocalDate date;

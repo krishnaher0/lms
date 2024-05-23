@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @RequiredArgsConstructor
 
 public class AttendancePojo {
-    private Integer id;
+    private Integer attendanceId;
     private Student studentId;
     private LocalDate dateNow;
     private boolean statusUpdate;

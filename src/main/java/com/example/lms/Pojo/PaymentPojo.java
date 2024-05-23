@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @Setter
 
 public class PaymentPojo {
-    private Long id;
+    private Long paymentId;
     private LocalDate date;
     private Long total;
     private Long paid;
