@@ -48,7 +48,7 @@ public class NoticeController {
         return noticeService.findById(id);
     }
 
-    @DeleteMapping("/delete/{identity}")
+    @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable Integer id) {
         this.noticeService.deleteById(id);
     }

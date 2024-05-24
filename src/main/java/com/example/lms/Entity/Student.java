@@ -26,6 +26,10 @@ public class Student{
     @SequenceGenerator(name="students_seq_gen",sequenceName="students_seq",allocationSize=1)
     @Id
     private Integer studentId;
+
+    @ManyToOne
+    @JoinColumn(name = "transportation_id", nullable = true)
+    private Transportation busNo;
     @Column(name="student_name" ,nullable=true, length=100)
     private String  studentName;
     @Column(name="password",nullable = false,length=100)

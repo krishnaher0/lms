@@ -1,6 +1,7 @@
 package com.example.lms.Pojo;
 
 
+import com.example.lms.Entity.Transportation;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,6 +15,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class StudentPojo {
     private Long studentId;
+    private Transportation busNo;
     private String studentName;
     private String Password;
     private String Email;

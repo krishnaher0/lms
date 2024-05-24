@@ -32,7 +32,6 @@ public class StudentController {
                     .build();
         }
 
-//
     @PostMapping("/save")
     public void save(@RequestBody StudentPojo studentPojo) {
 
