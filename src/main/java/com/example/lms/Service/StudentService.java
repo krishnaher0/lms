@@ -19,6 +19,8 @@ public interface StudentService {
     List<Student>getAll();
     void deleteById(Long id);
      Optional<Student> findById(Long id);
+     void updateData(Integer id, StudentPojo studentPojo);
+     boolean existsById(Integer id);
 
 }
 

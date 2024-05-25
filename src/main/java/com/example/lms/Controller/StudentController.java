@@ -6,6 +6,8 @@ import com.example.lms.Service.StudentService;
 import com.example.lms.Shared.GlobalApiResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -43,8 +45,20 @@ public class StudentController {
             System.out.println("Hello");
             return studentService.findById(id.longValue());
         }
+    @PutMapping("/update/{id}")
+    public ResponseEntity<String> update(@PathVariable Integer id, @RequestBody StudentPojo studentPojo) {
+        if (!studentService.existsById(id)) {
+            return new ResponseEntity<>("Students id" + id + " not found", HttpStatus.NOT_FOUND);
+        }
 
-        @DeleteMapping("/delete/{id}")
+        // Update the existing ground with the provided ID
+        studentService.updateData(id, studentPojo);
+
+        return ResponseEntity.ok("Student with ID " + id + " updated successfully");
+    }
+
+
+    @DeleteMapping("/delete/{id}")
         public void delete(@PathVariable Integer id) {
             this.studentService.deleteById(id.longValue());
         }
