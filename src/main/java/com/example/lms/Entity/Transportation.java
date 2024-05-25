@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -21,10 +22,10 @@ public class Transportation {
     @SequenceGenerator(name="transportation_seq_gen",sequenceName="transportation_seq_gen",allocationSize=1)
 
     private Integer busNo;
-    @OneToMany
+//    @OneToMany
 
-@Column(name="Transportation", nullable = false)
-    private List<Student> studentId;
+//@Column(name="", nullable = false)
+//    private List<Student> studentId=new ArrayList<>();
 
     @Column(name="Fees")
     private Integer busFee;

@@ -10,6 +10,6 @@ import java.util.Optional;
 public interface SubjectService {
     void addSubject(SubjectsPojo subjectsPojo);
     List<Subjects> getAll();
-    void deleteById(Long id);
-    Optional<Subjects> findById(Long id);
+    void deleteById(Integer id);
+    Optional<Subjects> findById(Integer id);
 }

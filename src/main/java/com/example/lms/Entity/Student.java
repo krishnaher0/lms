@@ -9,7 +9,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
@@ -30,6 +32,11 @@ public class Student{
     @ManyToOne
     @JoinColumn(name = "transportation_id", nullable = true)
     private Transportation busNo;
+
+    @ManyToOne
+    @JoinColumn(name="classe")
+    private ClassSchool className;
+
     @Column(name="student_name" ,nullable=true, length=100)
     private String  studentName;
     @Column(name="password",nullable = false,length=100)
@@ -38,8 +45,8 @@ public class Student{
     private String Email;
     @Column(name="contacts",nullable = false,length=100)
     private Integer Contacts;
-    @Column(name="grade",nullable = false,length=100)
-    private String Grade;
+
+
     @Column(name="section",nullable = false,length=100)
     private String Section;
     @Column(name="roll_no",nullable = false,length=100)

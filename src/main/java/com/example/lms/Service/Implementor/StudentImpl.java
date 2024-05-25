@@ -97,7 +97,8 @@ public class StudentImpl implements StudentService {
         student.setPassword(studentPojo.getPassword());
         student.setEmail(studentPojo.getEmail());
         student.setContacts(studentPojo.getContacts());
-        student.setGrade(studentPojo.getEmail());
+//        student.setClassName(studentPojo.getClassName());
+
         student.setSection(studentPojo.getEmail());
         student.setRollNo(studentPojo.getRollNo());
         student.setDateOfBirth(studentPojo.getDateOfBirth());
