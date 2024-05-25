@@ -19,12 +19,12 @@ public class TransportationImpl implements TransportationService {
         Transportation transport=new Transportation();
         transport.setBusNo(transportationPojo.getBusNo());
 
-        if (transportationPojo.getStudentId() != null) {
-            transport.setStudentId(transportationPojo.getStudentId());
-        } else {
-            System.out.println("error or null value");
-
-        }
+//        if (transportationPojo.getStudentId() != null) {
+//            transport.setStudentId(transportationPojo.getStudentId());
+//        } else {
+//            System.out.println("error or null value");
+//
+//        }
         transport.setRoute(transportationPojo.getRoute());
         transport.setBusFee(transportationPojo.getBusFee());
         transportationRepo.save(transport);

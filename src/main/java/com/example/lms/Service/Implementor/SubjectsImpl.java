@@ -1,21 +1,20 @@
-package com.example.lms.Service;
+package com.example.lms.Service.Implementor;
 
 import com.example.lms.Entity.Subjects;
 import com.example.lms.Pojo.SubjectsPojo;
 import com.example.lms.Repo.SubjectRepo;
-import lombok.Getter;
+import com.example.lms.Service.SubjectService;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-@Service
 @RequiredArgsConstructor
-@Getter
-@Setter
+@Service
+@Primary
 
-public class SubjectsImpl implements SubjectService{
+public class SubjectsImpl implements SubjectService {
     private final SubjectRepo subjectRepo;
     @Override
     public void addSubject(SubjectsPojo subjectsPojo) {
@@ -23,7 +22,6 @@ public class SubjectsImpl implements SubjectService{
         subject.setSubId(subjectsPojo.getSubId());
         subject.setSubjectName(subjectsPojo.getSubjectName());
         subject.setCredit(subjectsPojo.getCredits());
-        System.out.println(subjectsPojo.getCredits());
         subject.setClassName(subjectsPojo.getClassName());
         subjectRepo.save(subject);
 
@@ -35,13 +33,13 @@ public class SubjectsImpl implements SubjectService{
     }
 
     @Override
-    public void deleteById(Long id) {
-        subjectRepo.deleteById(id);
+    public void deleteById(Integer subId) {
+        subjectRepo.deleteById(subId.longValue());
 
     }
 
     @Override
-    public Optional<Subjects> findById(Long id) {
-        return subjectRepo.findById(id);
+    public Optional<Subjects> findById(Integer subId) {
+        return subjectRepo.findById(subId.longValue());
     }
 }

@@ -1,21 +1,41 @@
 package com.example.lms.Entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Setter
+@Getter
+@Entity
+@RequiredArgsConstructor
+@AllArgsConstructor
 
 public class Marks {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer marksId;
+    private  Integer marksid;
+    @ManyToOne
+
+    @JoinColumn(name="subId")
+
+    private Subjects subId;
+
     @Column(name="Fm", nullable = false)
-    private Double fm;
+    private Integer fm;
     @Column(name="Pm", nullable = false)
-    private Double pm;
+    private Integer pm;
 
     @Column(name="Om", nullable = false)
-    private Double om;
+    private Integer om;
+
+
+
+
+
 
 }

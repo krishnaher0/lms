@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -22,6 +25,10 @@ public class Subjects {
     @ManyToOne
     @JoinColumn(name="class_name", nullable = false)
     private ClassSchool className;
+
+    @ManyToMany
+
+    private List<Student> studentId=new ArrayList<>();
 
 
 

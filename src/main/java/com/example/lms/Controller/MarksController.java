@@ -1,51 +1,55 @@
 package com.example.lms.Controller;
 
+import com.example.lms.Entity.Marks;
 import com.example.lms.Entity.Student;
 import com.example.lms.Entity.Subjects;
+import com.example.lms.Pojo.MarksPojo;
 import com.example.lms.Pojo.StudentPojo;
-import com.example.lms.Pojo.SubjectsPojo;
+import com.example.lms.Service.MarksService;
 import com.example.lms.Service.StudentService;
-import com.example.lms.Service.SubjectService;
 import com.example.lms.Shared.GlobalApiResponse;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 @RestController
+@RequestMapping("/marks")
 @RequiredArgsConstructor
-@RequestMapping("/subjects")
+@Getter
 
-public class SubjectController {
-    private final SubjectService subjectService;
+
+public class MarksController {
+    private final MarksService marksService;
 
 
 
     @GetMapping("/get")
-    public GlobalApiResponse<List<Subjects>> getData() {
+    public GlobalApiResponse<List<Marks>> getData() {
         return GlobalApiResponse.
-                <List<Subjects>>builder()
-                .data(subjectService.getAll())
+                <List<Marks>>builder()
+                .data(marksService.getAll())
                 .statusCode(200)
                 .message("Data retrieved successfully!")
                 .build();
     }
 
     @PostMapping("/save")
-    public void save(@RequestBody SubjectsPojo subjectsPojo) {
+    public void save(@RequestBody MarksPojo marksPojo) {
 
-        this.subjectService.addSubject(subjectsPojo);
+        this.marksService.saveMarks(marksPojo);
     }
 
     @GetMapping("/get/{id}")
-    public Optional<Subjects> getData(@PathVariable Integer id) {
+    public Optional<Marks> getData(@PathVariable Subjects id) {
         System.out.println("Hello");
-        return subjectService.findById(id);
+        return marksService.findById(id.getSubId());
     }
 
     @DeleteMapping("/delete/{id}")
-    public void delete(@PathVariable Integer id) {
-        this.subjectService.deleteById(id);
+    public void delete(@PathVariable Subjects id) {
+        this.marksService.deleteById(id.getSubId());
     }
 
 }

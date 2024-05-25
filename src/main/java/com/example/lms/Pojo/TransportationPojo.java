@@ -11,7 +11,7 @@ import java.util.List;
 
 public class TransportationPojo {
     private Integer busNo;
-    private List<Student> studentId;
+//    private List<Student> studentId;
     private String route;
     private Integer busFee;
 }
