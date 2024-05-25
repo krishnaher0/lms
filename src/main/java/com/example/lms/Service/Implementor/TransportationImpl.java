@@ -1,6 +1,8 @@
 package com.example.lms.Service.Implementor;
 
+import com.example.lms.Entity.Student;
 import com.example.lms.Entity.Transportation;
+import com.example.lms.Pojo.StudentPojo;
 import com.example.lms.Pojo.TransportationPojo;
 import com.example.lms.Repo.TransportationRepo;
 import com.example.lms.Service.TransportationService;
@@ -44,5 +46,32 @@ public class TransportationImpl implements TransportationService {
     @Override
     public Optional<Transportation> findById(Integer busId) {
         return transportationRepo.findById(busId.longValue());
+    }
+    @Override
+    public void updateData(Integer id, TransportationPojo transportationPojo) {
+        Optional<Transportation> transportOptional = transportationRepo.findById(id.longValue());
+        if (transportOptional.isPresent()) {
+            Transportation existingTransport = transportOptional.get();
+            // Update the existing student with the data from studentPojo
+            updateStudentProperties(existingTransport, transportationPojo);
+            transportationRepo.save(existingTransport); // Save the updated student
+        } else {
+            // Handle the case where the student with the given ID does not exist
+            throw new IllegalArgumentException("Student with ID " + id + " not found");
+        }
+    }
+
+    // Helper method to update properties of Student based on StudentPojo
+    private void updateStudentProperties(Transportation transport, TransportationPojo transportationPojo) {
+        transport.setRoute(transportationPojo.getRoute());
+        transport.setBusNo(transportationPojo.getBusNo());
+        transport.setBusFee(transportationPojo.getBusFee());
+        transportationRepo.save(transport);
+        // You may need to update other properties here
+    }
+
+    @Override
+    public boolean existsById(Integer id) {
+        return transportationRepo.existsById(id.longValue());
     }
 }

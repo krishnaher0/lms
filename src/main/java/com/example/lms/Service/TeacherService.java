@@ -3,6 +3,7 @@ package com.example.lms.Service;
 
 import com.example.lms.Entity.Teacher;
 
+import com.example.lms.Pojo.StudentPojo;
 import com.example.lms.Pojo.TeacherPojo;
 import org.springframework.stereotype.Service;
 
@@ -15,4 +16,6 @@ public interface TeacherService {
     List<Teacher> getAll();
     void deleteById(Integer id);
     Optional<Teacher> findById(Integer id);
+    void updateData(Integer id, TeacherPojo teacherPojo);
+    boolean existsById(Integer id);
 }

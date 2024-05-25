@@ -16,4 +16,7 @@ public interface MarksService {
     List<Marks> getAll();
     void deleteById(Integer id);
     Optional<Marks> findById(Integer id);
+
+    void updateData(Integer id, MarksPojo marksPojo);
+    boolean existsById(Integer id);
 }

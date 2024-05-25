@@ -8,6 +8,8 @@ import com.example.lms.Service.StudentService;
 import com.example.lms.Service.SubjectService;
 import com.example.lms.Shared.GlobalApiResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -46,6 +48,18 @@ public class SubjectController {
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable Integer id) {
         this.subjectService.deleteById(id);
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<String> update(@PathVariable Integer id, @RequestBody SubjectsPojo subjectsPojo) {
+        if (!subjectService.existsById(id)) {
+            return new ResponseEntity<>("Students id" + id + " not found", HttpStatus.NOT_FOUND);
+        }
+
+        // Update the existing ground with the provided ID
+        subjectService.updateData(id, subjectsPojo);
+
+        return ResponseEntity.ok("Student with ID " + id + " updated successfully");
     }
 
 }
