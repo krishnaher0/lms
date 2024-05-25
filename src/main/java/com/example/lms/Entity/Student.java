@@ -29,6 +29,8 @@ public class Student{
     @Id
     private Integer studentId;
 
+    @OneToMany(mappedBy = "student")
+    private List<Marks> marks = new ArrayList<>();
     @ManyToOne
     @JoinColumn(name = "transportation_id", nullable = true)
     private Transportation busNo;
