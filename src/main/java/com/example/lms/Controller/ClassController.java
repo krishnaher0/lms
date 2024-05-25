@@ -37,7 +37,7 @@ public class ClassController {
         // Add validation or logging here if necessary
         if (classPojo.getClassName() == null) {
             // Handle the missing student_id case
-            return ResponseEntity.badRequest().body("Student ID is required");
+            return ResponseEntity.badRequest().body("Class Name is required");
         }
         classService.addClass(classPojo);
         return ResponseEntity.ok("Payment saved successfully");

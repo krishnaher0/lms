@@ -128,7 +128,43 @@ public class StudentImpl implements StudentService {
         return studentRepo.findById(id.intValue());
         }
 
+    @Override
+    public void updateData(Integer id, StudentPojo studentPojo) {
+        Optional<Student> studentOptional = studentRepo.findById(id);
+        if (studentOptional.isPresent()) {
+            Student existingStudent = studentOptional.get();
+            // Update the existing student with the data from studentPojo
+            updateStudentProperties(existingStudent, studentPojo);
+            studentRepo.save(existingStudent); // Save the updated student
+        } else {
+            // Handle the case where the student with the given ID does not exist
+            throw new IllegalArgumentException("Student with ID " + id + " not found");
+        }
     }
+
+    // Helper method to update properties of Student based on StudentPojo
+    private void updateStudentProperties(Student student, StudentPojo studentPojo) {
+        student.setBusNo(studentPojo.getBusNo());
+        student.setStudentName(studentPojo.getStudentName());
+        student.setPassword(studentPojo.getPassword());
+        student.setEmail(studentPojo.getEmail());
+        student.setContacts(studentPojo.getContacts());
+        student.setSection(studentPojo.getSection());
+        student.setRollNo(studentPojo.getRollNo());
+        student.setDateOfBirth(studentPojo.getDateOfBirth());
+        student.setAdmissionDate(studentPojo.getAdmissionDate());
+        student.setAge(studentPojo.getAge());
+        studentRepo.save(student);
+
+        // You may need to update other properties here
+    }
+
+    @Override
+    public boolean existsById(Integer id) {
+        return studentRepo.existsById(id);
+    }
+
+}
 
 
 
