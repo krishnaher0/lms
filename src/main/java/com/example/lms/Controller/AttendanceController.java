@@ -11,6 +11,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -55,6 +56,18 @@ public class AttendanceController {
     public Optional<Attendance> getData(@PathVariable Integer id) {
         System.out.println("Hello");
         return attendanceService.findById(id);
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<String> update(@PathVariable Integer id, @RequestBody AttendancePojo attendancePojo) {
+        if (!attendanceService.existsById(id)) {
+            return new ResponseEntity<>("Students id" + id + " not found", HttpStatus.NOT_FOUND);
+        }
+
+        // Update the existing ground with the provided ID
+        attendanceService.updateData(id, attendancePojo);
+
+        return ResponseEntity.ok("Student with ID " + id + " updated successfully");
     }
 
 }

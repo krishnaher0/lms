@@ -7,12 +7,14 @@ import com.example.lms.Entity.Student;
 
 import com.example.lms.Pojo.AttendancePojo;
 import com.example.lms.Pojo.PaymentPojo;
+import com.example.lms.Pojo.StudentPojo;
 import com.example.lms.Service.AttendanceService;
 import com.example.lms.Service.PaymentService;
 import com.example.lms.Shared.GlobalApiResponse;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -56,6 +58,18 @@ public class PaymentController {
     public Optional<Payment> getData(@PathVariable Long id) {
         System.out.println("Hello");
         return paymentService.findById(id);
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<String> update(@PathVariable Integer id, @RequestBody PaymentPojo paymentPojo) {
+        if (!paymentService.existsById(id)) {
+            return new ResponseEntity<>("Students id" + id + " not found", HttpStatus.NOT_FOUND);
+        }
+
+        // Update the existing ground with the provided ID
+        paymentService.updateData(id, paymentPojo);
+
+        return ResponseEntity.ok("Student with ID " + id + " updated successfully");
     }
 
 
