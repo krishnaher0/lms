@@ -24,7 +24,7 @@ public class Attendance {
 
     private Integer attendanceId;
     @ManyToOne
-   @JoinColumn(name="student_id" ,nullable=false )
+//   @JoinColumn(name="student_id" ,nullable=false )
     private Student studentId;
     @Column(name="Date", nullable=false)
     private LocalDate dateNow;

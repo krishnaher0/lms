@@ -25,8 +25,8 @@ public class Marks {
 
     private Subjects subId;
     @ManyToOne
-    @JoinColumn(name = "student_id")
     private Student student;
+
 
     @Column(name="Fm", nullable = false)
     private Integer fm;
