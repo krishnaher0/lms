@@ -24,6 +24,7 @@ public class MarksImpl implements MarksService {
         Marks marks=new Marks();
 
         marks.setSubId(marksPojo.getSubId());
+        marks.setStudent(marksPojo.getStudentId());
         marks.setFm(marksPojo.getFm());
         marks.setPm(marksPojo.getPm());
         marks.setOm(marksPojo.getOm());
@@ -69,6 +70,7 @@ public class MarksImpl implements MarksService {
         marks.setFm(marksPojo.getFm());
         marks.setPm(marksPojo.getPm());
         marks.setOm(marksPojo.getOm());
+        marks.setStudent(marksPojo.getStudentId());
         marks.setMarksid(marksPojo.getMarksId());
         marksRepo.save(marks);
 

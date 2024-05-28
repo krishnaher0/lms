@@ -23,7 +23,7 @@ public class Subjects {
     private String credit;
 
     @ManyToOne
-    @JoinColumn(name="class_name", nullable = false)
+//    @JoinColumn(name="class_name", nullable = false)
     private ClassSchool className;
 
     @ManyToMany

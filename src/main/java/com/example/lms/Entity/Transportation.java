@@ -22,10 +22,6 @@ public class Transportation {
     @SequenceGenerator(name="transportation_seq_gen",sequenceName="transportation_seq_gen",allocationSize=1)
 
     private Integer busNo;
-//    @OneToMany
-
-//@Column(name="", nullable = false)
-//    private List<Student> studentId=new ArrayList<>();
 
     @Column(name="Fees")
     private Integer busFee;

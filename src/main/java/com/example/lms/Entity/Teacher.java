@@ -11,9 +11,14 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.Date;
-@Getter
-@Setter
+import java.util.List;
+
+
+
 @Entity
+@Getter
+
+@Setter
 @Table
 @RequiredArgsConstructor
 public class Teacher {
@@ -24,6 +29,10 @@ public class Teacher {
         @SequenceGenerator(name="teachers_seq_gen",sequenceName="teachers_seq",allocationSize=1)
         @Id
         private Long id;
+        @OneToMany
+        private List<ClassSchool> classSchool;
+        @OneToMany
+        private List<Subjects> subjects;
         @Column(name="teacher_name" ,nullable=true, length=100)
         private String  teacherName;
         @Column(name="password",nullable = false,length=100)

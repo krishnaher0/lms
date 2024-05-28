@@ -15,7 +15,6 @@ import java.util.List;
 import java.util.Optional;
 @RequiredArgsConstructor
 @Service
-@Getter
 @Setter
 
 public class TeacherImpl implements TeacherService {
@@ -30,6 +29,8 @@ public class TeacherImpl implements TeacherService {
 
         Teacher teacher = new Teacher();
         teacher.setId(teacherPojo.getId());
+        teacher.setClassSchool(teacherPojo.getClassSchool());
+        teacher.setSubjects(teacherPojo.getSubjects());
         teacher.setTeacherName(teacherPojo.getTeacherName());
         teacher.setPassword(teacherPojo.getPassword());
         teacher.setEmail(teacherPojo.getEmail());
@@ -77,6 +78,8 @@ public class TeacherImpl implements TeacherService {
     private void updateStudentProperties(Teacher teacher, TeacherPojo teacherPojo) {
         teacher.setId(teacherPojo.getId());
         teacher.setTeacherName(teacherPojo.getTeacherName());
+        teacher.setClassSchool(teacherPojo.getClassSchool());
+        teacher.setSubjects(teacherPojo.getSubjects());
         teacher.setPassword(teacherPojo.getPassword());
         teacher.setEmail(teacherPojo.getEmail());
         teacher.setContacts(teacherPojo.getContacts());

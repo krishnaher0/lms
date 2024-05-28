@@ -39,8 +39,7 @@ public class Payment {
     @Column(name="status")
     private boolean status;
 
-    @JoinColumn(name="student_id")
-    @OneToOne()
+    @ManyToOne
     private Student studentId;
 
 

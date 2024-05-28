@@ -29,15 +29,11 @@ public class Student{
     @Id
     private Integer studentId;
 
-    @OneToMany(mappedBy = "student")
-    private List<Marks> marks = new ArrayList<>();
+//    @OneToMany(mappedBy = "student")
+//    private List<Marks> marks = new ArrayList<>();
     @ManyToOne
     @JoinColumn(name = "transportation_id", nullable = true)
     private Transportation busNo;
-
-    @ManyToOne
-    @JoinColumn(name="classe")
-    private ClassSchool className;
 
     @Column(name="student_name" ,nullable=true, length=100)
     private String  studentName;
