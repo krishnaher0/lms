@@ -15,14 +15,22 @@
 }
 
 .left-area {
-    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    cursor: default;
+    pointer-events: none;
+    margin-top: 0;
+    margin-bottom: 60px;
+    margin-left: 20px;
 }
 
-.text {
-    height: 75px;
-    width: 200px;
-    margin-left: 40px;
-    margin-top: -7px;
+.logo-image {
+}
+
+.logo-image img {
+    height: 100px;
+    width: 120px;
 }
 
 .middle-area {
@@ -30,6 +38,7 @@
     flex-direction: row;
     align-content: center;
     cursor: default;
+    pointer-events: none;
 }
 
 .admin-label {
