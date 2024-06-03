@@ -1,8 +1,8 @@
 import './App.css'
-import Admin from "./Admin.tsx";
+import Teacher from "./Teacher.tsx";
 
 function App() {
-    return <div><Admin></Admin></div>
+    return <div><Teacher></Teacher></div>
 }
 
 export default App
