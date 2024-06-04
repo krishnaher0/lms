@@ -1,6 +1,7 @@
 import {useNavigate} from "react-router-dom";
 import {useQuery} from "@tanstack/react-query";
 import axios from "axios";
+import StudentForm from "./StudentForm.tsx";
 
 function Attendance() {
 
@@ -21,6 +22,7 @@ function Attendance() {
 
     return (
         <>
+
             <button onClick={() => navigate("/students")}>click here to add new user.</button>
             <table border={1}>
                 <thead>
@@ -42,6 +44,8 @@ function Attendance() {
                 ))}
                 </tbody>
             </table>
+
+            <StudentForm/>
         </>
     )
 }

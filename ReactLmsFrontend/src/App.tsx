@@ -1,11 +1,11 @@
-import './App.css'
+
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
 import Home from "./components/Home.tsx";
-import Header from "./components/Header.tsx";
 import Admin from "./components/Admin.tsx";
-import Sidebar from "./components/Sidebar.tsx";
 import Attendance from "./components/Attendance.tsx";
+import AdminSScreen from "./screen/Admin's Screen.tsx";
+// import Default from "./components/Default.tsx";
 
 
 const queryClient = new QueryClient()
@@ -16,13 +16,14 @@ function App() {
     return (
         <>
             <QueryClientProvider client={queryClient}>
-                <git />
-                <Sidebar/>
+
+
 
 
                 <RouterProvider router={
                     createBrowserRouter(
                         [
+                            {path: "", element: <AdminSScreen/>},
 
                             {path: "/home", element: <Home/>},
                             {path: "/admin", element: <Admin/>},
