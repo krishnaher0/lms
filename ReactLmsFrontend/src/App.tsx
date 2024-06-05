@@ -7,11 +7,13 @@ import Result from "./components/Results.tsx";
 import Home from "./components/Home.tsx";
 import Admin from "./components/Admin.tsx";
 import Attendance from "./components/Attendance.tsx";
-import { QueryClientProvider } from '@tanstack/react-query';
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
+
 
 
 
 function App() {
+    const queryClient = new QueryClient()
 
     return (
         <>
