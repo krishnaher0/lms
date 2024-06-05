@@ -1,26 +1,42 @@
 
 
+
 import './App.css'
-import Header from "./components/Header.tsx";
-import Footer from "./components/Footer.tsx";
-import HomePage from "./components/HomePage.tsx";
+import {createBrowserRouter, RouterProvider} from 'react-router-dom'
+import Result from "./components/Results.tsx";
+import Home from "./components/Home.tsx";
+import Admin from "./components/Admin.tsx";
+import Attendance from "./components/Attendance.tsx";
+import { QueryClientProvider } from '@tanstack/react-query';
+
+
 
 function App() {
-  // const [count, setCount] = useState(0)
 
-  return (
-    <>
-      <div>
-          <Header />
-          <HomePage />
-          <Footer />
+    return (
+        <>
+            <QueryClientProvider client={queryClient}>
 
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+
+
+
+                <RouterProvider router={
+                    createBrowserRouter(
+                        [
+                            {path: "", element: <Result/>},
+
+                            {path: "/home", element: <Home/>},
+                            {path: "/admin", element: <Admin/>},
+                            {path: "/students", element: <Attendance/>}
+
+
+                        ]
+                    )
+                }/>
+            </QueryClientProvider>
+        </>
+    )
+
 }
 
-export default App
+export default App;

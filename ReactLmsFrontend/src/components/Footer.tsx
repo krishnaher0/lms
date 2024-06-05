@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 const Footer: React.FC = () => {
@@ -21,3 +22,4 @@ const styles = {
 };
 
 export default Footer;
+
