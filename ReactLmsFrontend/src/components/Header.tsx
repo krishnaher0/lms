@@ -15,7 +15,7 @@ const Header = () => {
             <header className="fixed top-0 left-0 w-full bg-blue-600 text-white shadow-lg p-4">
                 <div className="flex justify-center space-x-4">
                     <button
-                        className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+                        className="text -3xl font-bold"
 
                     onClick={()=>navigate('/students')}>
                         Button 1

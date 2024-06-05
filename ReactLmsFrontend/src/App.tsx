@@ -4,8 +4,9 @@ import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
 import Home from "./components/Home.tsx";
 import Admin from "./components/Admin.tsx";
 import Attendance from "./components/Attendance.tsx";
-import AdminSScreen from "./screen/Admin's Screen.tsx";
+// import AdminSScreen from "./screen/Admin's Screen.tsx";
 // import Default from "./components/Default.tsx";
+import Result from "./components/Results.tsx"
 
 
 const queryClient = new QueryClient()
@@ -23,7 +24,7 @@ function App() {
                 <RouterProvider router={
                     createBrowserRouter(
                         [
-                            {path: "", element: <AdminSScreen/>},
+                            {path: "", element: <Result/>},
 
                             {path: "/home", element: <Home/>},
                             {path: "/admin", element: <Admin/>},

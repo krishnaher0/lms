@@ -2,6 +2,7 @@ import {useNavigate} from "react-router-dom";
 import {useQuery} from "@tanstack/react-query";
 import axios from "axios";
 import StudentForm from "./StudentForm.tsx";
+// import Header from "./Header.tsx";
 
 function Attendance() {
 
@@ -22,6 +23,8 @@ function Attendance() {
 
     return (
         <>
+            {/*<Header/>*/}
+
 
             <button onClick={() => navigate("/students")}>click here to add new user.</button>
             <table border={1}>
